@@ -6,9 +6,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+
 @app.route("/button-click", methods=["POST"])
 def button_click():
-    return "Button clicked!."
+    return "Chấm tăng ca rồi nha."
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5500)
