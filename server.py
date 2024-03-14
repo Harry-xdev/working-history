@@ -88,14 +88,18 @@ def handle_button():
             desktop_folder = os.path.expanduser("~/Desktop")
             file_path = os.path.join(desktop_folder, "history.csv")
             
-            with open(file_path, 'a', newline="") as file:
+            # with open(file_path, 'a', newline="") as file:
+            #     writer = csv.writer(file)
+            #     writer.writerow([person_name, person_date, person_time])
+            
+            with open("history.csv", 'a', newline="") as file:
                 writer = csv.writer(file)
                 writer.writerow([person_name, person_date, person_time])
-                
     
     return 'Button content received.'
 
 
 
 if __name__ == "__main__":
-    app.run(port=5500)
+    # app.run(port=5500)
+    app.run()
