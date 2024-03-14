@@ -4,6 +4,7 @@ import os
 import csv
 from datetime import date
 from datetime import datetime
+import pytz
 
 
 id_lst = ['btn_1', 'btn_2', 'btn_3', 'btn_4', 'btn_5', 'btn_6', 'btn_7', 'btn_8', 'btn_9', 'btn_10', 'btn_11', 'btn_12', 'btn_13', 'btn_14', 'btn_15', 'btn_16', 'btn_17']
@@ -13,9 +14,14 @@ def get_date():
 	return curr_date
 
 def get_time():
-	curr_time = datetime.now().strftime("%H:%M")
-	print(curr_time)
-	return curr_time
+    # Specify the desired time zone
+    desired_timezone = pytz.timezone("Asia/Ho_Chi_Minh")  # Replace with your desired time zone
+
+    # Get the current time in the desired time zone
+    curr_time = datetime.now(desired_timezone).strftime("%H:%M")
+    print(curr_time)
+
+    return curr_time
 
 
 
