@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 import json
 import os
 import csv
@@ -25,6 +25,11 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
     # return "Hello, World!"
+
+@app.route("/download-history")
+def download_history():
+    filename = "history.csv"
+    return send_file(filename, as_attachment=True)
 
 @app.route("/button-click", methods=["POST"])
 def button_click():
