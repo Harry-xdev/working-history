@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New page</title>
+</head>
+<body>
+	<h1>Hello! Mọi người ra về nhớ chấm công, lụm lúa xin đừng quên.</h1>
+	<form id="button-container" action="/button-click" method="post">
+		<button id="btn_0" class="btn">Test page status</button><br>
+		<!-- <button id="btn_2" class="btn" onclick="sendName(textContent)">Trương Tư Xuân</button><br>
+		<button id="btn_3" class="btn" onclick="sendName(textContent)">Lê Thành Tam</button><br>
+		<button id="btn_4" class="btn" onclick="sendName(textContent)">Phạm Thị Hương</button><br>
+		<button id="btn_5" class="btn" onclick="sendName(textContent)">Nguyễn Hoàng Việt</button><br>
+		<button id="btn_6" class="btn" onclick="sendName(textContent)">Nguyễn Thị Hồng Yến</button><br>
+		<button id="btn_7" class="btn" onclick="sendName(textContent)">Bùi Hồng Phúc</button><br>
+		<button id="btn_8" class="btn" onclick="sendName(textContent)">Trương Văn Minh</button><br>
+		<button id="btn_9" class="btn" onclick="sendName(textContent)">Nguyễn Quang Quí</button><br>
+		<button id="btn_10" class="btn" onclick="sendName(textContent)">Nguyễn Thị Diễm My</button><br>
+		<button id="btn_11" class="btn" onclick="sendName(textContent)">Lê Minh Thắng</button><br>
+		<button id="btn_12" class="btn" onclick="sendName(textContent)">Lê Quốc Trung</button><br>
+		<button id="btn_13" class="btn" onclick="sendName(textContent)">Nguyễn Tuấn Anh</button><br>
+		<button id="btn_14" class="btn" onclick="sendName(textContent)">Trần Văn Lưu</button><br>
+		<button id="btn_15" class="btn" onclick="sendName(textContent)">Lê Huỳnh Anh Khoa</button><br>
+		<button id="btn_16" class="btn" onclick="sendName(textContent)">Nguyễn Mai Phương</button><br>
+		<button id="btn_17" class="btn" onclick="sendName(textContent)">Nguyễn Phạm Ngọc Tuyết</button><br> -->
+	
+
+
+
+	</form>
+
+	<button id="btn_1" class="btn" onclick="sendName('btn_1')">Le Phuong</button><br>
+	<button id="btn_2" class="btn" onclick="sendName('btn_2')">Truong Tu Xuan</button><br>
+	<button id="btn_3" class="btn" onclick="sendName('btn_3')">Truong Thanh Tam</button><br>
+	<button id="btn_3" class="btn" onclick="sendName('btn_3')">Le Thanh Tuan</button><br>
+	<button id="btn_4" class="btn" onclick="sendName('btn_4')">Pham Thi Huong</button><br>
+	<button id="btn_5" class="btn" onclick="sendName('btn_5')">Nguyen Hoang Viet</button><br>
+	<button id="btn_6" class="btn" onclick="sendName('btn_6')">Nguyen Thi Hong Yen</button><br>
+	<button id="btn_7" class="btn" onclick="sendName('btn_7')">Bui Hong Phuc</button><br>
+	<button id="btn_8" class="btn" onclick="sendName('btn_8')">Truong Van Minh</button><br>
+	<button id="btn_9" class="btn" onclick="sendName('btn_9')">Nguyen Quang Qui</button><br>
+	<button id="btn_10" class="btn" onclick="sendName('btn_10')">Nguyen Thi Diem My</button><br>
+	<button id="btn_11" class="btn" onclick="sendName('btn_11')">Le Minh Thang</button><br>
+	<button id="btn_12" class="btn" onclick="sendName('btn_12')">Le Quoc Trung</button><br>
+	<button id="btn_13" class="btn" onclick="sendName('btn_13')">Nguyen Tuan Anh</button><br>
+	<button id="btn_14" class="btn" onclick="sendName('btn_14')">Tran Van Luu</button><br>
+	<button id="btn_15" class="btn" onclick="sendName('btn_15')">Le Huynh Anh Khoa</button><br>
+	<button id="btn_16" class="btn" onclick="sendName('btn_16')">Nguyen Mai Phuong</button><br>
+	<button id="btn_17" class="btn" onclick="sendName('btn_17')">Nguyen Pham Ngoc Tuyet</button><br>
+
+
+
+</body>
+</html>
+
+<script>
+	var currDate = new Date();
+	var year = currDate.getFullYear();
+	var month = currDate.getMonth() + 1;
+	var day = currDate.getDate();
+	var hour = currDate.getHours();
+	var min = currDate.getMinutes();
+	var date = day + "/" + month + "/" + year
+	var time = hour + ":" + min
+	// console.log("Current date time: " + day + "/" + month + "/" + year + "-" + hour + ":" + min)
+	console.log(date)
+	console.log(time)
+
+
+
+	var buttons = document.getElementsByClassName("btn");
+	function handClick() {
+		let buttonText = this.textContent;
+		console.log(buttonText + " " + date + " " + time);
+	};
+
+	function sendName(buttonId) {
+		const button = document.getElementById(buttonId)
+		console.log(buttonId)
+		const content = button.innerHTML
+		const payload = {
+			buttonId : buttonId,
+			content : content,
+			date : date,
+			time : time
+		}
+		fetch('/button', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		}).then(response => {
+			if (response.ok) {
+				return response.text();
+			} else {
+				Error('Request failed.')
+			}
+		});
+	};
+
+	// for (let i=0; i < buttons.length; i++) {
+	// 	buttons[i].addEventListener("click", handClick);
+	// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

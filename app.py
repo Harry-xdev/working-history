@@ -23,8 +23,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    # return render_template("index.html")
-    return "Hello, World!"
+    return render_template("index.html")
+    # return "Hello, World!"
 
 @app.route("/button-click", methods=["POST"])
 def button_click():
@@ -102,6 +102,6 @@ def handle_button():
 
 
 # if __name__ == "__main__":
-#     # app.run(port=5500)
+#     app.run(port=5500)
 #     # app.run(port=10000)
-#     app.run()
+#     # app.run()
