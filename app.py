@@ -121,7 +121,7 @@ def handle_button():
 
 
 
-if __name__ == "__main__":
-    app.run(port=5500)
+# if __name__ == "__main__":
+    # app.run(port=5500)
     # app.run(port=10000)
     # app.run()
