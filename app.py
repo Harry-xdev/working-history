@@ -25,7 +25,10 @@ def get_time():
 
 
 
-app = Flask(__name__)
+app = Flask(__name__,
+static_url_path = '/static',
+static_folder = 'templates')
+
 
 @app.route("/")
 def index():
