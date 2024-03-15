@@ -89,6 +89,7 @@ def button_click():
 #     return 'Button content received.'
 
 def handle_button():
+    
 
     button_id = request.json['buttonId']
     person_name = request.json['content']
@@ -121,7 +122,6 @@ def handle_button():
 
 
 
-# if __name__ == "__main__":
-    # app.run(port=5500)
-    # app.run(port=10000)
+if __name__ == "__main__":
+    app.run(port=5500)
     # app.run()

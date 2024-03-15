@@ -10,8 +10,7 @@
 		<h3 style="color: rgb(252, 252, 252); font-family: monospace;">Hello ACE! Chấm công nha!</h3>
 		<h3 style="color: rgb(255, 255, 255); font-family: monospace">Lụm lúa xin đừng quên.</h3>
 		<br>
-		<button><a style="font-family: monospace" href="https://working-history.onrender.com/download-history">Download excel file</a></button>
-		<br>
+		<button><a href="https://working-history.onrender.com/download-history">Download excel file</a></button>
 		<br>
 		<button style="width: 250px; height: 50px; font-size: larger; font-family: monospace" id="btn_1" class="btn" onclick="sendName('btn_1')">Le Phuong</button><br>
 		<button style="width: 250px; height: 50px; font-size: larger; font-family: monospace" id="btn_2" class="btn" onclick="sendName('btn_2')">Truong Tu Xuan</button><br>
@@ -42,9 +41,11 @@
 <script>
 
 	var buttons = document.getElementsByClassName("btn");
-	function handClick() {
+	function handClick(buttonId) {
 		let buttonText = this.textContent;
 		alert("Check-in(out) successful.");
+		const buttonDiv = document.getElementById(buttonId);
+		buttonDiv.style.backgroundColor = '#003039'
 	};
 
 	function sendName(buttonId) {
@@ -68,7 +69,7 @@
 				Error('Request failed.')
 			}
 		});
-		handClick();
+		handClick(buttonId);
 	};
 
 	// for (let i=0; i < buttons.length; i++) {
