@@ -35,6 +35,12 @@ def index():
     return render_template("index.html")
     # return "Hello, World!"
 
+@app.route("/finished-page")
+def finish_page():
+    return "Successful check-in(out)!"
+
+
+
 @app.route("/download-history")
 def download_history():
     filename = "history.csv"
@@ -116,6 +122,6 @@ def handle_button():
 
 
 if __name__ == "__main__":
-#     app.run(port=5500)
-#     # app.run(port=10000)
-    app.run()
+    app.run(port=5500)
+    # app.run(port=10000)
+    # app.run()

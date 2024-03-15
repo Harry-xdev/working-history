@@ -3,34 +3,19 @@
 <head>
 	<title>New page</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
 </head>
 <body>
 	<div id="body-container">
-		<h1>Hello ACE! Chấm công nha! Lụm lúa xin đừng quên. nhaaa</h1>
-		<form id="button-container" action="/button-click" method="post">
-			<button id="btn_0" class="btn">Test page status</button><br>
-			<!-- <button id="btn_2" class="btn" onclick="sendName(textContent)">Trương Tư Xuân</button><br>
-			<button id="btn_3" class="btn" onclick="sendName(textContent)">Lê Thành Tam</button><br>
-			<button id="btn_4" class="btn" onclick="sendName(textContent)">Phạm Thị Hương</button><br>
-			<button id="btn_5" class="btn" onclick="sendName(textContent)">Nguyễn Hoàng Việt</button><br>
-			<button id="btn_6" class="btn" onclick="sendName(textContent)">Nguyễn Thị Hồng Yến</button><br>
-			<button id="btn_7" class="btn" onclick="sendName(textContent)">Bùi Hồng Phúc</button><br>
-			<button id="btn_8" class="btn" onclick="sendName(textContent)">Trương Văn Minh</button><br>
-			<button id="btn_9" class="btn" onclick="sendName(textContent)">Nguyễn Quang Quí</button><br>
-			<button id="btn_10" class="btn" onclick="sendName(textContent)">Nguyễn Thị Diễm My</button><br>
-			<button id="btn_11" class="btn" onclick="sendName(textContent)">Lê Minh Thắng</button><br>
-			<button id="btn_12" class="btn" onclick="sendName(textContent)">Lê Quốc Trung</button><br>
-			<button id="btn_13" class="btn" onclick="sendName(textContent)">Nguyễn Tuấn Anh</button><br>
-			<button id="btn_14" class="btn" onclick="sendName(textContent)">Trần Văn Lưu</button><br>
-			<button id="btn_15" class="btn" onclick="sendName(textContent)">Lê Huỳnh Anh Khoa</button><br>
-			<button id="btn_16" class="btn" onclick="sendName(textContent)">Nguyễn Mai Phương</button><br>
-			<button id="btn_17" class="btn" onclick="sendName(textContent)">Nguyễn Phạm Ngọc Tuyết</button><br> -->
-		
-	
-	
-	
-		</form>
-	
+		<h3 style="color: rgb(252, 252, 252)">Hello ACE! Chấm công nha!</h3><br>
+		<h3 style="color: rgb(255, 255, 255)">Lụm lúa xin đừng quên.</h3>
+		<br>
+		<button><a href="https://working-history.onrender.com/download-history">Download excel file</a></button>
+		<br>
+		<br>
+		<br>
+
+
 		<button id="btn_1" class="btn" onclick="sendName('btn_1')">Le Phuong</button><br>
 		<button id="btn_2" class="btn" onclick="sendName('btn_2')">Truong Tu Xuan</button><br>
 		<button id="btn_3" class="btn" onclick="sendName('btn_3')">Truong Thanh Tam</button><br>
@@ -54,29 +39,15 @@
 
 
 
-
 </body>
 </html>
 
 <script>
-	var currDate = new Date();
-	var year = currDate.getFullYear();
-	var month = currDate.getMonth() + 1;
-	var day = currDate.getDate();
-	var hour = currDate.getHours();
-	var min = currDate.getMinutes();
-	var date = day + "/" + month + "/" + year
-	var time = hour + ":" + min
-	// console.log("Current date time: " + day + "/" + month + "/" + year + "-" + hour + ":" + min)
-	console.log(date)
-	console.log(time)
-
-
 
 	var buttons = document.getElementsByClassName("btn");
 	function handClick() {
 		let buttonText = this.textContent;
-		console.log(buttonText + " " + date + " " + time);
+		// alert("Check-in(out) successful.");
 	};
 
 	function sendName(buttonId) {
@@ -86,8 +57,6 @@
 		const payload = {
 			buttonId : buttonId,
 			content : content,
-			date : date,
-			time : time
 		}
 		fetch('/button', {
 			method: 'POST',
@@ -102,6 +71,7 @@
 				Error('Request failed.')
 			}
 		});
+		handClick();
 	};
 
 	// for (let i=0; i < buttons.length; i++) {
