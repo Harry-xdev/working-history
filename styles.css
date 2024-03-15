@@ -1,0 +1,13 @@
+#body-container {
+    background-color: lightskyblue;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+};
+
+@media only screen and (max-width: 767px) {
+    body {
+        width: auto;
+    }
+}
